@@ -1,8 +1,9 @@
 import { useState } from "react";
-import MovieList from "./components/MovieList";
 import MoviePreview from "./components/MoviePreview";
 import EventBus from "./components/EventBus";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Page from "./components/Page";
+import MovieList from "./components/MovieList";
 
 function App() {
   const [movieId, setMovieId] = useState(0);
@@ -15,7 +16,8 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<MovieList />}>
+          <Route path="/" element={<Page />}>
+            <Route index element={<MovieList />} />
             <Route path="/preview" element={<MoviePreview />}>
               <Route path=":id" element={<MoviePreview />}>
                 <Route path=":test" element={<MoviePreview />}></Route>
@@ -25,8 +27,9 @@ function App() {
           <Route
             path="*"
             element={
+              // TODO: make proper 404 page
               <main style={{ padding: "1rem" }}>
-                <p>There's nothing here!</p>
+                <p>There's nothing here (yet)!</p>
               </main>
             }
           />

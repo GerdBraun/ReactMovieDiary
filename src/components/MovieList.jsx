@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Outlet } from "react-router-dom";
 import MovieCard from "./MovieCard";
 
 const MovieList = () => {
@@ -35,7 +34,6 @@ const MovieList = () => {
           );
         })}
       </ul>
-      <Outlet />
     </div>
   );
 };
