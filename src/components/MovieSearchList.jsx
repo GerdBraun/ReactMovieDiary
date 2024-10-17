@@ -1,16 +1,19 @@
 import { useEffect, useState } from "react";
 import MovieCard from "./MovieCard";
+import { useSearchParams } from "react-router-dom";
 
-const MovieList = ({apiKey}) => {
+const MovieSearchList = ({apiKey}) => {
   const [movieList, setMovieList] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const keywords = searchParams.get('keywords');
 
   useEffect(() => {
     getMovieList();
-  }, []);
+  }, [keywords]);
 
   const getMovieList = async () => {
     fetch(
-      `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&api_key=${apiKey}`
+      `https://api.themoviedb.org/3/search/movie?query=${keywords}&include_adult=false&language=en-US&page=1&api_key=${apiKey}`
     )
       .then((response) => response.json())
       .then((response) => {
@@ -27,7 +30,7 @@ const MovieList = ({apiKey}) => {
           return (
             <li
               key={movie.id}
-              
+              className="card w-52 max-w-52 flex-none shadow-lg rounded-lg bg-gray-100 relative"
             >
                 <MovieCard movie={movie} />
             </li>
@@ -38,4 +41,4 @@ const MovieList = ({apiKey}) => {
   );
 };
 
-export default MovieList;
+export default MovieSearchList;
