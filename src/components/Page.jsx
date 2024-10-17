@@ -1,5 +1,4 @@
 import { Outlet } from "react-router-dom";
-import MovieList from "./MovieList";
 import Header from "./Header";
 import Footer from "./Footer";
 
@@ -8,7 +7,6 @@ const Page = () => {
     <>
       <Header />
       <main>
-        <MovieList />
         <Outlet />
       </main>
       <Footer />
