@@ -4,9 +4,11 @@ import EventBus from "./components/EventBus";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Page from "./components/Page";
 import MovieList from "./components/MovieList";
+import MovieSearchList from "./components/MovieSearchList";
 
 function App() {
   const [movieId, setMovieId] = useState(0);
+  const [apiKey, setApiKey] = useState('153a09fbeef547fb0435feeeb75d0140');
 
   EventBus.$on("moviePreviewChanged", (data) => {
     setMovieId(data);
@@ -17,19 +19,22 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Page />}>
-            <Route index element={<MovieList />} />
-            <Route path="/preview" element={<MoviePreview />}>
-              <Route path=":id" element={<MoviePreview />}>
-                <Route path=":test" element={<MoviePreview />}></Route>
+            <Route index element={<MovieList apiKey={apiKey} />} />
+            <Route path="/preview" element={<MoviePreview apiKey={apiKey} />}>
+              <Route path=":id" element={<MoviePreview apiKey={apiKey} />}>
+                <Route path=":test" element={<MoviePreview apiKey={apiKey} />}></Route>
               </Route>
             </Route>
+            <Route path="/search" element={<MovieSearchList apiKey={apiKey} />}></Route>
           </Route>
           <Route
             path="*"
             element={
               // TODO: make proper 404 page
               <main className="flex flex-col justify-center items-center text-white">
-                <h2 className="text-white text-4xl font-extrabold tracking-tight leading-none">404 Error</h2>
+                <h2 className="text-white text-4xl font-extrabold tracking-tight leading-none">
+                  404 Error
+                </h2>
                 <p>There's nothing here (yet)!</p>
               </main>
             }
