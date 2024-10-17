@@ -1,6 +1,6 @@
 import { useState } from "react";
 import MovieList from "./components/MovieList";
-import MoviePreview from "./MoviePreview";
+import MoviePreview from "./components/MoviePreview";
 import EventBus from "./components/EventBus";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
