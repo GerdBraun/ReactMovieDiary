@@ -28,7 +28,8 @@ function App() {
             path="*"
             element={
               // TODO: make proper 404 page
-              <main style={{ padding: "1rem" }}>
+              <main className="flex flex-col justify-center items-center text-white">
+                <h2 className="text-white text-4xl font-extrabold tracking-tight leading-none">404 Error</h2>
                 <p>There's nothing here (yet)!</p>
               </main>
             }

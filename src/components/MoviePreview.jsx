@@ -27,8 +27,9 @@ const MoviePreview = (props) => {
   };
 
   return (
-    <div>
-      MoviePreview {movieData.title}
+    <div className=" text-white">
+       {/* TODO: make it real */}
+      MoviePreview <strong>{movieData.title}</strong> (movie details already fetched & waiting for display)
     </div>
   );
 };
