@@ -1,4 +1,6 @@
 const Rating = ({ percent }) => {
+  if(!percent) return;
+
   const radius = 40;
   const circumference = radius * 2 * Math.PI;
   const offset = circumference - (percent / 10) * circumference;
