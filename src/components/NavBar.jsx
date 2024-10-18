@@ -5,13 +5,13 @@ const NavBar = () => {
     <nav>
       <ul className="main-nav flex gap-2 items-center">
         <li>
-          <NavLink to="/" className="text-white m-2" key="home">Home</NavLink>
+          <NavLink to="/" className="text-white m-2 hover:text-gray-500" key="home">Home</NavLink>
         </li>
         <li>
-          <NavLink to="favorites" className="text-white m-2" key="favorites">Favorites</NavLink>
+          <NavLink to="favorites" className="text-white m-2 hover:text-gray-500" key="favorites">Favorites</NavLink>
         </li>
         <li>
-          <NavLink to="comments" className="text-white m-2" key="comments">Comments</NavLink>
+          <NavLink to="comments" className="text-white m-2 hover:text-gray-500" key="comments">Comments</NavLink>
         </li>
       </ul>
     </nav>

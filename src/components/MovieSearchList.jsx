@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import MovieCard from "./MovieCard";
 import { useSearchParams } from "react-router-dom";
 
-const MovieSearchList = ({apiKey}) => {
+const MovieSearchList = ({ apiKey }) => {
   const [movieList, setMovieList] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
-  const keywords = searchParams.get('keywords');
+  const keywords = searchParams.get("keywords");
 
   useEffect(() => {
     getMovieList();
@@ -28,11 +28,8 @@ const MovieSearchList = ({apiKey}) => {
       <ul className="{movie.id} py-8 px-4 lg:px-6 flex gap-8 overflow-x-scroll bg-red-900">
         {movieList.map((movie) => {
           return (
-            <li
-              key={movie.id}
-              className="card w-52 max-w-52 flex-none shadow-lg rounded-lg bg-gray-100 relative"
-            >
-                <MovieCard movie={movie} />
+            <li key={movie.id}>
+              <MovieCard movie={movie} />
             </li>
           );
         })}
