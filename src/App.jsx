@@ -1,10 +1,12 @@
 import { useState } from "react";
 import MoviePreview from "./components/MoviePreview";
-import EventBus from "./components/EventBus";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Page from "./components/Page";
 import MovieList from "./components/MovieList";
 import MovieSearchList from "./components/MovieSearchList";
+import EventBus from "./components/EventBus";
+import StorageHandler from "./components/StorageHandler";
+import MovieFavoritesList from "./components/MovieFavoritesList";
 
 function App() {
   const [movieId, setMovieId] = useState(0);
@@ -26,6 +28,7 @@ function App() {
               </Route>
             </Route>
             <Route path="/search" element={<MovieSearchList apiKey={apiKey} />}></Route>
+            <Route path="/favorites" element={<MovieFavoritesList />} />
           </Route>
           <Route
             path="*"
