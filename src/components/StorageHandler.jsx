@@ -47,7 +47,7 @@ const StorageHandler = {
       movieTitle: movie.title,
       text: text,
     };
-    list.push(commentObj);
+    list.unshift(commentObj);
     localStorage.setItem(this.localStorageNameComments, JSON.stringify(list));
   },
 
