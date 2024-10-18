@@ -6,7 +6,7 @@ const MovieFavoritesList = ({apiKey}) => {
   const [movieList, setMovieList] = useState([]);
 
   useEffect(() => {
-    setMovieList(StorageHandler.getFavList());
+    setMovieList(StorageHandler.getFavoritesList());
   }, []);
 
   return (

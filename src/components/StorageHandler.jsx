@@ -1,15 +1,16 @@
 const StorageHandler = {
   localStorageNameFav: "favList",
+  localStorageNameFComments: "commentsList",
 
   // get the list
-  getFavList() {
+  getFavoritesList() {
     return JSON.parse(localStorage.getItem(this.localStorageNameFav)) || [];
   },
 
   // add movie if not present
-  addToFav(movie) {
+  favoriteAdd(movie) {
     // prevent duplicates
-    if (!this.isFav(movie)) {
+    if (!this.isFavorite(movie)) {
       const list =
         JSON.parse(localStorage.getItem(this.localStorageNameFav)) || [];
       list.push(movie);
@@ -18,7 +19,7 @@ const StorageHandler = {
   },
 
   // remove movie from list
-  removeFromFav(movie) {
+  favoriteRemove(movie) {
     const list =
       JSON.parse(localStorage.getItem(this.localStorageNameFav)) || [];
     const newlist = list.filter((item) => item.id !== movie.id);
@@ -26,11 +27,57 @@ const StorageHandler = {
   },
 
   // check if movie is already a fav
-  isFav(movie) {
+  isFavorite(movie) {
     const list =
       JSON.parse(localStorage.getItem(this.localStorageNameFav)) || [];
     const found = list.find((item) => item.id === movie.id);
     return !!found;
+  },
+
+  commentAdd(text, movie) {
+    const list =
+      JSON.parse(localStorage.getItem(this.localStorageNameFComments)) || [];
+
+    movie = movie || { id: 4711, title: "blah" };
+
+    const commentObj = {
+      id: crypto.randomUUID(),
+      timestamp: Date.now(),
+      movieId: movie.id,
+      movieTitle: movie.title,
+      text: text,
+    };
+    list.push(commentObj);
+    localStorage.setItem(this.localStorageNameFComments, JSON.stringify(list));
+  },
+
+  // remove movie from list
+  commentRemove(id) {
+    const list =
+      JSON.parse(
+        localStorage.getItem(this.localStorageNlocalStorageNameFCommentsameFav)
+      ) || [];
+    const newList = list.filter((item) => item.id !== id);
+    localStorage.setItem(
+      this.localStorageNameFComments,
+      JSON.stringify(newlist)
+    );
+  },
+
+  // get the list
+  getCommentsList() {
+    return (
+      JSON.parse(localStorage.getItem(this.localStorageNameFComments)) || []
+    );
+  },
+
+  // get the list ba movie id
+  getCommentsListByMovieId(movieId) {
+    const list =
+      JSON.parse(localStorage.getItem(this.localStorageNameFComments)) || [];
+    return list.filter(
+      (comment) => parseInt(comment.movieId) === parseInt(movieId)
+    );
   },
 };
 
