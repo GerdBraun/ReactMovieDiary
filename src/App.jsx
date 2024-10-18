@@ -6,6 +6,7 @@ import MovieList from "./components/MovieList";
 import MovieSearchList from "./components/MovieSearchList";
 import EventBus from "./components/EventBus";
 import MovieFavoritesList from "./components/MovieFavoritesList";
+import CommentsList from "./components/CommentsList";
 
 function App() {
   const [movieId, setMovieId] = useState(0);
@@ -28,6 +29,7 @@ function App() {
             </Route>
             <Route path="/search" element={<MovieSearchList apiKey={apiKey} />}></Route>
             <Route path="/favorites" element={<MovieFavoritesList />} />
+            <Route path="/comments" element={<CommentsList />} />
           </Route>
           <Route
             path="*"
