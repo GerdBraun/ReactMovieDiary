@@ -4,14 +4,13 @@ import MovieCard from "./MovieCard";
 
 const MoviePreview = ({ apiKey }) => {
   const [movie, setMovie] = useState({});
+  const [imgPath, setImgPath] = useState('');
 
   const { id } = useParams();
 
   useEffect(() => {
     getMovieData(id);
   }, [id]);
-
-  let imgPath = "";
 
   const getMovieData = async (movieId) => {
     if (!movieId || movieId === 0) return;
@@ -26,9 +25,10 @@ const MoviePreview = ({ apiKey }) => {
         console.info("finished loading movie data");
         setMovie(response);
 
-        imgPath = movie.poster_path
-          ? `https://media.themoviedb.org/t/p/w220_and_h330_face${movie.poster_path}`
-          : "https://placehold.co/220x330?text=no%20image%20available";
+        (movie.poster_path !== '')
+          ? setImgPath(`https://media.themoviedb.org/t/p/w1920_and_h800_multi_faces/${response.poster_path}`)
+          : setImgPath("https://placehold.co/1920x800?text=no%20image%20available");
+
       })
       .catch((err) => console.error(err));
   };
@@ -37,7 +37,7 @@ const MoviePreview = ({ apiKey }) => {
     <>
       <div
         style={{
-          backgroundImage: `url(https://media.themoviedb.org/t/p/w1920_and_h800_multi_faces/${movie.poster_path})`,
+          backgroundImage: `url(${imgPath})`,
         }}
         className="bg-cover bg-center"
       >

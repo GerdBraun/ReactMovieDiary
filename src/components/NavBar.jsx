@@ -8,7 +8,10 @@ const NavBar = () => {
           <Link to="/" className="text-white m-2">Home</Link>
         </li>
         <li>
-          <Link to="about" className="text-white m-2">About Us</Link>
+          <Link to="favorites" className="text-white m-2">Favorites</Link>
+        </li>
+        <li>
+          <Link to="comments" className="text-white m-2">Comments</Link>
         </li>
       </ul>
     </nav>
