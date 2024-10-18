@@ -1,6 +1,6 @@
 const StorageHandler = {
   localStorageNameFav: "favList",
-  localStorageNameFComments: "commentsList",
+  localStorageNameComments: "commentsList",
 
   // get the list
   getFavoritesList() {
@@ -36,7 +36,7 @@ const StorageHandler = {
 
   commentAdd(text, movie) {
     const list =
-      JSON.parse(localStorage.getItem(this.localStorageNameFComments)) || [];
+      JSON.parse(localStorage.getItem(this.localStorageNameComments)) || [];
 
     movie = movie || { id: 4711, title: "blah" };
 
@@ -48,33 +48,33 @@ const StorageHandler = {
       text: text,
     };
     list.push(commentObj);
-    localStorage.setItem(this.localStorageNameFComments, JSON.stringify(list));
+    localStorage.setItem(this.localStorageNameComments, JSON.stringify(list));
   },
 
   // remove movie from list
   commentRemove(id) {
     const list =
       JSON.parse(
-        localStorage.getItem(this.localStorageNlocalStorageNameFCommentsameFav)
+        localStorage.getItem(this.localStorageNameComments)
       ) || [];
-    const newList = list.filter((item) => item.id !== id);
+    const filteredList = list.filter((item) => item.id !== id);
     localStorage.setItem(
-      this.localStorageNameFComments,
-      JSON.stringify(newlist)
+      this.localStorageNameComments,
+      JSON.stringify(filteredList)
     );
   },
 
   // get the list
   getCommentsList() {
     return (
-      JSON.parse(localStorage.getItem(this.localStorageNameFComments)) || []
+      JSON.parse(localStorage.getItem(this.localStorageNameComments)) || []
     );
   },
 
   // get the list ba movie id
   getCommentsListByMovieId(movieId) {
     const list =
-      JSON.parse(localStorage.getItem(this.localStorageNameFComments)) || [];
+      JSON.parse(localStorage.getItem(this.localStorageNameComments)) || [];
     return list.filter(
       (comment) => parseInt(comment.movieId) === parseInt(movieId)
     );

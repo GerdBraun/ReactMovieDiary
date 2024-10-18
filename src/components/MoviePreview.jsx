@@ -65,7 +65,7 @@ const MoviePreview = ({ apiKey }) => {
           </div>
         </div>
       </div>
-              <MovieComments movie={movie} />
+      <MovieComments movie={movie} />
     </>
   );
 };
