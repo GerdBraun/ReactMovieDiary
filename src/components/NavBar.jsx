@@ -1,17 +1,17 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   return (
     <nav>
-      <ul className="flex gap-2 items-center">
+      <ul className="main-nav flex gap-2 items-center">
         <li>
-          <Link to="/" className="text-white m-2">Home</Link>
+          <NavLink to="/" className="text-white m-2 hover:text-gray-500" key="home">Home</NavLink>
         </li>
         <li>
-          <Link to="favorites" className="text-white m-2">Favorites</Link>
+          <NavLink to="favorites" className="text-white m-2 hover:text-gray-500" key="favorites">Favorites</NavLink>
         </li>
         <li>
-          <Link to="comments" className="text-white m-2">Comments</Link>
+          <NavLink to="comments" className="text-white m-2 hover:text-gray-500" key="comments">Comments</NavLink>
         </li>
       </ul>
     </nav>

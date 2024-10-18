@@ -4,11 +4,17 @@
 
 
 .action-button.active > svg {
-    fill:green;
+  fill:green;
+}
+.action-button:hover > svg {
+  fill:green;
+}
+.action-button.active:hover > svg {
+  fill:#c82c2c;
+}
+
+@layer base {
+  .main-nav a.active {
+    @apply text-gray-500
   }
-  .action-button:hover > svg {
-    fill:green;
-  }
-  .action-button.active:hover > svg {
-    fill:#c82c2c;
-  }
+}
