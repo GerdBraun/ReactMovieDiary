@@ -13,8 +13,14 @@ const MoviePreview = ({ apiKey }) => {
     getMovieData(id);
   }, [id]);
 
-  const addToFavs = () => {
-    StorageHandler.addToFav(movie)
+  const toggleFav = () => {
+    if (!StorageHandler.isFav(movie)) {
+      StorageHandler.addToFav(movie);
+    } else {
+      console.log("removing");
+
+      StorageHandler.removeFromFav(movie);
+    }
   };
 
   const getMovieData = async (movieId) => {
@@ -52,7 +58,12 @@ const MoviePreview = ({ apiKey }) => {
         <div className="bg-[rgba(0,0,0,.75)]">
           <div className="py-8 px-4 mx-auto max-w-screen-xl lg:px-6 flex gap-8 md:items-stretch">
             <MovieCard movie={movie} />
-            <button onClick={addToFavs} className="w-10 h-10">
+            <button
+              onClick={toggleFav}
+              className={
+                StorageHandler.isFav(movie) ? "action-button w-10 h-10 active" : "action-button w-10 h-10"
+              }
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 260 245"

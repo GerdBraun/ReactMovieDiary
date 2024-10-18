@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.action-button.active > svg {
+    fill:green;
+  }
+  .action-button:hover > svg {
+    fill:green;
+  }
+  .action-button.active:hover > svg {
+    fill:#c82c2c;
+  }

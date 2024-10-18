@@ -5,7 +5,6 @@ import Page from "./components/Page";
 import MovieList from "./components/MovieList";
 import MovieSearchList from "./components/MovieSearchList";
 import EventBus from "./components/EventBus";
-import StorageHandler from "./components/StorageHandler";
 import MovieFavoritesList from "./components/MovieFavoritesList";
 
 function App() {
