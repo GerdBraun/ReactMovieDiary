@@ -12,7 +12,10 @@ const MovieList = ({apiKey}) => {
     fetch(
       `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&api_key=${apiKey}`
     )
-      .then((response) => response.json())
+      .then((response) => {
+        if(!response.ok) throw new Error('something went wrong');
+        return response.json();
+      })
       .then((response) => {
         console.info("finished loading initial data");
         setMovieList(response.results);
