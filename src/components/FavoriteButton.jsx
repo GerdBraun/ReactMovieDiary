@@ -15,6 +15,7 @@ const FavoriteButton = ({ movie }) => {
       StorageHandler.favoriteRemove(movie);
     }
     navigate("/favorites");
+    navigate(0);
   };
 
   return (
