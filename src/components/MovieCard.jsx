@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Rating from "./Rating";
 import FavoriteButton from "./FavoriteButton";
 
-const MovieCard = ({ movie }) => {
+const MovieCard = ({ movie, setMovieList }) => {
   const imgPath = movie.poster_path
     ? `https://media.themoviedb.org/t/p/w220_and_h330_face${movie.poster_path}`
     : "https://placehold.co/220x330?text=no%20image%20available";
@@ -13,7 +13,7 @@ const MovieCard = ({ movie }) => {
         <Rating percent={movie.vote_average} />
       </Link>
       <span className=" w-10 h-10 absolute top-[-1rem] right-[-1rem]">
-        <FavoriteButton movie={movie} />
+        <FavoriteButton movie={movie} setMovieList={setMovieList} />
       </span>{" "}
       <div>
         <h3 className="p-2 text-center text-sm">{movie.title}</h3>
