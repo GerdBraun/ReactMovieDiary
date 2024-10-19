@@ -25,15 +25,16 @@ const Header = () => {
           Movie Diary
         </h1>
         <NavBar />
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="flex">
           <input
             type="text"
             name="searchString"
             placeholder="search for something"
+            className="p-2 rounded-l-lg focus:outline-none"
           />
           <button
             id="searchButton"
-            className="action-button movie-button movie-button-green"
+            className="p-2 rounded-r-lg bg-green-600 hover:bg-green-800  text-white"
             data-action="search"
           >
             search

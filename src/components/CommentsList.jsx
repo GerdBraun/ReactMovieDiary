@@ -22,8 +22,8 @@ const CommentsList = () => {
   return (
     <section className="py-8 px-4 mx-auto max-w-screen-xl lg:px-6 md:flex gap-8 md:items-stretch">
       <div className="flex-1 mb-6 flex flex-col bg-gray-50 rounded-lg shadow-xl p-6">
-        <div>All comments</div>
-        <ul>
+      <h2 className="text-4xl font-extrabold mb-4">Comments</h2>
+      <ul>
           {commentsList.map((comment) => {
             return (
               <li
@@ -38,10 +38,10 @@ const CommentsList = () => {
                   <span>{comment.text}</span>
                 </div>
                 <div className="flex gap-2">
-                  <button onClick={() => showMovie(comment.movieId)}>
+                  <button onClick={() => showMovie(comment.movieId)} className="btn btn-green">
                     view
                   </button>
-                  <button onClick={() => deleteComment(comment.id)}>
+                  <button onClick={() => deleteComment(comment.id)} className="btn btn-red">
                     delete
                   </button>
                 </div>

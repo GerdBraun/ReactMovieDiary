@@ -8,6 +8,8 @@ import EventBus from "./components/EventBus";
 import MovieFavoritesList from "./components/MovieFavoritesList";
 import CommentsList from "./components/CommentsList";
 
+// TODO: use AbortController on fetches
+
 function App() {
   const [movieId, setMovieId] = useState(0);
   const [apiKey, setApiKey] = useState('153a09fbeef547fb0435feeeb75d0140');

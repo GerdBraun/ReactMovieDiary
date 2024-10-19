@@ -2,19 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .action-button.active > svg {
-  fill:green;
+  fill: green;
 }
 .action-button:hover > svg {
-  fill:green;
+  fill: green;
 }
 .action-button.active:hover > svg {
-  fill:#c82c2c;
+  fill: #c82c2c;
 }
 
 @layer base {
   .main-nav a.active {
-    @apply text-gray-500
+    @apply text-gray-500;
+  }
+
+  .btn {
+    @apply inline-flex 
+    justify-center
+    items-center 
+    py-1 
+    px-3 
+    text-base 
+    font-medium 
+    text-center 
+    rounded-lg 
+    border 
+    border-gray-300 
+    focus:ring-4 
+    focus:ring-gray-100 
+
+    hover:text-white 
+    hover:border-gray-700 
+    hover:bg-slate-800 
+    hover:focus:ring-gray-800
+
+    disabled:bg-gray-200
+    disabled:hover:bg-gray-200
+    ;
+
+  }
+
+  .btn-green {
+    @apply bg-green-600 hover:bg-green-800  text-white
+  }
+
+  .btn-red {
+    @apply bg-red-600 hover:bg-red-800 text-white
   }
 }
