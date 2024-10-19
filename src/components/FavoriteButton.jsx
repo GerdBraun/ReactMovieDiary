@@ -1,10 +1,11 @@
 import StorageHandler from "./StorageHandler";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
-
-const FavoriteButton = ({ movie }) => {
+const FavoriteButton = ({ movie, setMovieList }) => {
   // for navigation purposes
   const navigate = useNavigate();
+  const { pathname } = useLocation();
+
   /**
    * movie add to / remove from favs
    */
@@ -14,8 +15,12 @@ const FavoriteButton = ({ movie }) => {
     } else {
       StorageHandler.favoriteRemove(movie);
     }
-    navigate("/favorites");
-    navigate(0);
+
+    if (pathname !== "/favorites") {
+      navigate("/favorites");
+    } else {
+      setMovieList(StorageHandler.getFavoritesList());
+    }
   };
 
   return (

@@ -18,7 +18,7 @@ const MovieFavoritesList = ({apiKey}) => {
               key={movie.id}
               
             >
-                <MovieCard movie={movie} />
+                <MovieCard movie={movie} setMovieList={setMovieList}/>
             </li>
           );
         })}
