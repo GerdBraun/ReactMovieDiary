@@ -29,7 +29,7 @@ const MovieList = ({ apiKey }) => {
         {movieList.map((movie) => {
           return (
             <li key={movie.id}>
-              <MovieCard movie={movie} />
+              <MovieCard movie={movie} setMovieList={getMovieList} />
             </li>
           );
         })}

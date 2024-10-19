@@ -17,7 +17,7 @@ const FavoriteButton = ({ movie, setMovieList }) => {
     }
 
     if (pathname !== "/favorites") {
-      navigate("/favorites");
+      setMovieList();
     } else {
       setMovieList(StorageHandler.getFavoritesList());
     }
