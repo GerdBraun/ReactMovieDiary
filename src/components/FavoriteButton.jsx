@@ -16,10 +16,12 @@ const FavoriteButton = ({ movie, setMovieList }) => {
       StorageHandler.favoriteRemove(movie);
     }
 
-    if (pathname !== "/favorites") {
-      setMovieList();
-    } else {
+    if (pathname === "/favorites") {
       setMovieList(StorageHandler.getFavoritesList());
+    } else if (pathname.indexOf("preview") > -1) {
+      // TODO: make it work in preview, too
+    } else {
+      setMovieList();
     }
   };
 
